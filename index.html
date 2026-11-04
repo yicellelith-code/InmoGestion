@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InmoGestión · Bogotá</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ================= MENÚ LATERAL ================= -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">IG</div>
+      <div><strong>InmoGestión</strong><small>Bogotá · Fase 2</small></div>
+    </div>
+
+    <div class="nav-group">
+      <h3>Principal</h3>
+      <button class="nav-item" data-screen="dashboard">Dashboard</button>
+      <button class="nav-item" data-screen="contratos">Contratos</button>
+      <div class="nav-sub">
+        <button class="nav-item" data-screen="contrato-detalle">Detalle del contrato</button>
+        <button class="nav-item" data-screen="cobro">Cobro</button>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <h3>Registro</h3>
+      <button class="nav-item" data-screen="inmuebles">Inmuebles</button>
+      <button class="nav-item" data-screen="copropiedades">Copropiedades</button>
+      <button class="nav-item" data-screen="arrendatarios">Arrendatarios</button>
+      <button class="nav-item" data-screen="propietarios">Propietarios</button>
+    </div>
+
+    <div class="nav-group">
+      <h3>Financiero</h3>
+      <button class="nav-item" data-screen="pagos">Pagos</button>
+      <button class="nav-item" data-screen="gastos">Gastos</button>
+      <button class="nav-item" data-screen="estados-cuenta">Estados de cuenta</button>
+    </div>
+
+    <div class="nav-group">
+      <h3>Reportes</h3>
+      <button class="nav-item" data-screen="rep-propietario">Inf. Propietario</button>
+      <button class="nav-item" data-screen="rep-arrendatario">Inf. Arrendatario</button>
+      <button class="nav-item" data-screen="cierre">Cierre mensual</button>
+    </div>
+
+    <div class="nav-group">
+      <h3>Datos</h3>
+      <button class="nav-item" data-screen="importar">Importar Excel</button>
+      <button class="nav-item" data-screen="exportar">Exportar Excel</button>
+      <button class="nav-item" data-screen="parametros">Parámetros</button>
+      <button class="nav-item" data-screen="seguridad">Seguridad y SMTP</button>
+    </div>
+
+    <div class="side-foot">InmoGestión · Fase 2</div>
+  </aside>
+
+  <!-- ================= CONTENIDO ================= -->
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menu-btn">☰</button>
+      <h2 id="topbar-title">InmoGestión</h2>
+      <div class="spacer"></div>
+      <span class="badge">Fase 2 · Funcional</span>
+    </header>
+
+    <div class="content" id="content">
+
+      <!-- ================= PRINCIPAL · DASHBOARD ================= -->
+      <section class="screen" id="screen-dashboard">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Principal</p>
+            <h1>Dashboard</h1>
+            <p class="sub">Inmuebles, recaudado del mes, pagos por validar y deudas de mayor a menor.</p>
+          </div>
+          <div class="actions">
+            <button class="btn" data-screen="contratos">Ver contratos</button>
+            <button class="btn primary" id="btn-actualizar-dash">Actualizar Datos</button>
+          </div>
+        </div>
+
+        <div class="grid g4">
+          <div class="card kpi"><div class="label">Inmuebles</div><div class="value">—</div><div class="meta">Total registrados</div></div>
+          <div class="card kpi"><div class="label">Recaudado del mes</div><div class="value">$ —</div><div class="meta">Pagos validados</div></div>
+          <div class="card kpi"><div class="label">Pagos por validar</div><div class="value">—</div><div class="meta">Contra extracto</div></div>
+          <div class="card kpi"><div class="label">Contratos activos</div><div class="value">—</div><div class="meta">Vigentes</div></div>
+        </div>
+
+        <div class="card mt">
+          <h3>Deudas de mayor a menor</h3>
+          <p class="hint">Arrendatarios con saldo pendiente, ordenados de mayor a menor.</p>
+          <table>
+            <thead><tr><th>Arrendatario</th><th>Contrato</th><th>Inmueble</th><th>Saldo</th><th>Estado</th></tr></thead>
+            <tbody><tr class="empty"><td colspan="5">Cargando datos...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= PRINCIPAL · CONTRATOS ================= -->
+      <section class="screen" id="screen-contratos">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Principal</p>
+            <h1>Contratos</h1>
+            <p class="sub">Fechas, aseguradora, IVA/retenciones e incrementos.</p>
+          </div>
+          <div class="actions">
+            <input type="search" placeholder="Buscar contrato…">
+            <button class="btn primary" data-soon>Nuevo contrato</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <table>
+            <thead><tr><th>Código</th><th>Inmueble</th><th>Arrendatario</th><th>Inicio</th><th>Fin</th><th>Aseguradora</th><th>IVA/Retención</th><th>Incremento</th><th>Estado</th><th></th></tr></thead>
+            <tbody>
+              <tr class="empty"><td colspan="10">Sin contratos registrados.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card mt">
+          <h3>Acceso a la estructura del detalle</h3>
+          <p class="hint">El formulario de contratos se inyecta aquí.</p>
+        </div>
+      </section>
+
+      <!-- ================= PRINCIPAL · DETALLE CONTRATO ================= -->
+      <section class="screen" id="screen-contrato-detalle">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Principal · Contratos</p>
+            <h1>Detalle del contrato</h1>
+            <p class="sub">Resumen · Cobros mensuales · Nuevo cobro · Datos</p>
+          </div>
+          <div class="actions">
+            <button class="btn" data-screen="contratos">← Volver a Contratos</button>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="tab-resumen">Resumen</button>
+          <button class="tab" data-tab="tab-cobros">Cobros mensuales</button>
+          <button class="tab" data-tab="tab-nuevo">Nuevo cobro</button>
+          <button class="tab" data-tab="tab-datos">Datos</button>
+        </div>
+
+        <div class="tabpanel active" id="tab-resumen"></div>
+        <div class="tabpanel" id="tab-cobros"></div>
+        <div class="tabpanel" id="tab-nuevo"></div>
+        <div class="tabpanel" id="tab-datos"></div>
+      </section>
+
+      <!-- ================= PRINCIPAL · COBRO ================= -->
+      <section class="screen" id="screen-cobro">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Principal · Contratos · Detalle</p>
+            <h1>Cobro</h1>
+            <p class="sub">Cargos (arriendo/admin/parqueadero), pagos (validar) y gastos.</p>
+          </div>
+          <div class="actions">
+            <button class="btn" data-screen="contrato-detalle">← Volver al Detalle</button>
+          </div>
+        </div>
+        <div class="grid g3">
+          <!-- cobros.js inyecta aquí los paneles -->
+        </div>
+      </section>
+
+      <!-- ================= REGISTRO · INMUEBLES ================= -->
+      <section class="screen" id="screen-inmuebles">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Registro</p>
+            <h1>Inmuebles</h1>
+            <p class="sub">Tipo, estado, propietarios con %, copropiedad y servicios con lecturas.</p>
+          </div>
+          <div class="actions">
+            <input type="search" placeholder="Buscar inmueble…">
+            <button class="btn primary" id="btn-nuevo-inmueble">Nuevo inmueble</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <table>
+            <thead><tr><th>Código</th><th>Tipo</th><th>Estado</th><th>Copropiedad</th><th>Propietarios (%)</th><th>Servicios</th></tr></thead>
+            <tbody><tr class="empty"><td colspan="6">Sin inmuebles registrados.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card mt">
+          <h3>Estructura del formulario de inmueble</h3>
+          <div class="form mt"></div>
+        </div>
+      </section>
+
+      <!-- ================= REGISTRO · COPROPIEDADES ================= -->
+      <section class="screen" id="screen-copropiedades">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Registro</p>
+            <h1>Copropiedades</h1>
+            <p class="sub">Administrador, correos admin/contadora y teléfonos.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="btn-nuevo-copropiedad">Nueva copropiedad</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <table>
+            <thead><tr><th>Nombre</th><th>Administrador</th><th>Correo admin</th><th>Correo contadora</th><th>Teléfonos</th></tr></thead>
+            <tbody><tr class="empty"><td colspan="5">Sin copropiedades registradas.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card mt">
+          <h3>Estructura del formulario</h3>
+          <div class="form mt"></div>
+        </div>
+      </section>
+
+      <!-- ================= REGISTRO · ARRENDATARIOS ================= -->
+      <section class="screen" id="screen-arrendatarios">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Registro</p>
+            <h1>Arrendatarios</h1>
+            <p class="sub">Datos, codeudores y encargado de pago.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="btn-nuevo-arrendatario">Nuevo arrendatario</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <table>
+            <thead><tr><th>Nombre</th><th>Documento</th><th>Teléfono</th><th>Correo</th><th>Codeudores</th><th>Encargado de pago</th></tr></thead>
+            <tbody><tr class="empty"><td colspan="6">Sin arrendatarios registrados.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card mt">
+          <h3>Estructura del formulario</h3>
+          <div class="form mt"></div>
+        </div>
+      </section>
+
+      <!-- ================= REGISTRO · PROPIETARIOS ================= -->
+      <section class="screen" id="screen-propietarios">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Registro</p>
+            <h1>Propietarios</h1>
+            <p class="sub">Datos, cuenta bancaria y pago único o dividido.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="btn-nuevo-propietario">Nuevo propietario</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <table>
+            <thead><tr><th>Nombre</th><th>Documento</th><th>Cuenta bancaria</th><th>Tipo de pago</th></tr></thead>
+            <tbody><tr class="empty"><td colspan="4">Sin propietarios registrados.</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card mt">
+          <h3>Estructura del formulario</h3>
+          <div class="form mt"></div>
+        </div>
+      </section>
+
+      <!-- ================= FINANCIERO · PAGOS ================= -->
+      <section class="screen" id="screen-pagos">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Financiero</p>
+            <h1>Pagos</h1>
+            <p class="sub">Lista global de pagos y validación contra extracto.</p>
+          </div>
+          <div class="actions">
+            <!-- BOTÓN NUEVO PAGO -->
+            <button class="btn primary" id="btn-nuevo-pago">Nuevo Movimiento</button>
+          </div>
+        </div>
+
+        <!-- pagos.js inyecta la tabla y el formulario aquí -->
+        <div class="card"></div>
+        <div class="card mt"></div>
+      </section>
+
+      <!-- ================= FINANCIERO · GASTOS ================= -->
+      <section class="screen" id="screen-gastos">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Financiero</p>
+            <h1>Gastos</h1>
+            <p class="sub">A cargo del arrendatario o del propietario.</p>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="btn-nuevo-gasto">Nuevo gasto</button>
+          </div>
+        </div>
+
+        <!-- gastos.js inyecta la tabla y el formulario aquí -->
+        <div class="card"></div>
+        <div class="card mt"></div>
+      </section>
+
+      <!-- ================= FINANCIERO · ESTADOS DE CUENTA ================= -->
+      <section class="screen" id="screen-estados-cuenta">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Financiero</p>
+            <h1>Estados de cuenta</h1>
+            <p class="sub">Detalle mes a mes por contrato.</p>
+          </div>
+          <div class="actions"></div>
+        </div>
+        <div class="card"></div>
+      </section>
+
+      <!-- ================= REPORTES ================= -->
+      <section class="screen" id="screen-rep-propietario">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Reportes</p>
+            <h1>Informe Propietario</h1>
+            <p class="sub">Ingresos − comisión − IVA − gastos = neto.</p>
+          </div>
+        </div>
+        <div class="card"></div>
+      </section>
+
+      <section class="screen" id="screen-rep-arrendatario">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Reportes</p>
+            <h1>Informe Arrendatario</h1>
+            <p class="sub">Cargos del mes + historial + saldo.</p>
+          </div>
+        </div>
+        <div class="card"></div>
+      </section>
+
+      <section class="screen" id="screen-cierre">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Reportes</p>
+            <h1>Cierre mensual</h1>
+            <p class="sub">Facturado vs recaudado por contrato.</p>
+          </div>
+          <div class="actions">
+            <input type="date">
+            <button class="btn primary" data-soon>Generar cierre</button>
+          </div>
+        </div>
+        <div class="card"></div>
+      </section>
+
+      <!-- ================= DATOS ================= -->
+      <section class="screen" id="screen-importar">
+        <div class="screen-head">
+          <div><p class="crumb">Datos</p><h1>Importar Excel</h1><p class="sub">Plantillas para carga de datos.</p></div>
+        </div>
+        <div class="grid g3">
+          <div class="card"><h3>Arrendatarios</h3><div class="actions mt"><button class="btn" data-soon>Descargar plantilla</button></div></div>
+          <div class="card"><h3>Inmuebles</h3><div class="actions mt"><button class="btn" data-soon>Descargar plantilla</button></div></div>
+          <div class="card"><h3>Propietarios</h3><div class="actions mt"><button class="btn" data-soon>Descargar plantilla</button></div></div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-exportar">
+        <div class="screen-head">
+          <div><p class="crumb">Datos</p><h1>Exportar Excel</h1><p class="sub">Por módulo o período.</p></div>
+        </div>
+        <div class="card"></div>
+      </section>
+
+      <section class="screen" id="screen-seguridad"></section>
+
+      <!-- ================= DATOS · PARÁMETROS ================= -->
+      <section class="screen" id="screen-parametros">
+        <div class="screen-head">
+          <div>
+            <p class="crumb">Datos</p>
+            <h1>Parámetros</h1>
+            <p class="sub">Empresa, NIT, % comisión, IVA y métodos de pago.</p>
+          </div>
+          <div class="actions"></div>
+        </div>
+
+        <div class="card">
+          <div class="form">
+            <div class="row">
+              <div class="field" style="flex:1"><label>Empresa</label><input type="text" id="param-empresa"></div>
+              <div class="field" style="flex:1"><label>NIT</label><input type="text" id="param-nit"></div>
+            </div>
+            <div class="row">
+              <div class="field" style="flex:1"><label>% Comisión</label><input type="number" id="param-comision"></div>
+              <div class="field" style="flex:1"><label>IVA</label><input type="number" id="param-iva"></div>
+            </div>
+            <div class="field"><label>Métodos de pago</label>
+              <div class="row">
+                <label class="chk"><input type="checkbox" class="param-metodo" value="Transferencia"> Transferencia</label>
+                <label class="chk"><input type="checkbox" class="param-metodo" value="PSE"> PSE</label>
+                <label class="chk"><input type="checkbox" class="param-metodo" value="Efectivo"> Efectivo</label>
+                <label class="chk"><input type="checkbox" class="param-metodo" value="Nequi"> Nequi</label>
+              </div>
+            </div>
+            <div class="actions mt">
+              <button class="btn primary" id="btn-guardar-parametros">Guardar Parámetros</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- SCRIPTS -->
+<script src="modulos/storage.js"></script>
+<script src="modulos/parametros.js"></script>
+<script src="modulos/propietarios.js"></script>
+<script src="modulos/inmuebles.js"></script>
+<script src="modulos/copropiedades.js"></script>
+<script src="modulos/arrendatarios.js"></script>
+<script src="modulos/contratos.js"></script>
+<script src="modulos/detalle.js"></script>
+<script src="modulos/cobros.js"></script>
+<script src="modulos/dashboard.js"></script>
+<script src="modulos/pagos.js"></script>
+<script src="modulos/gastos.js"></script>
+<script src="modulos/estados-cuenta.js"></script>
+<script src="modulos/seguridad.js"></script>
+<script src="modulos/plantillas-correo.js"></script>
+<script src="modulos/reporte-propietario.js"></script>
+<script src="modulos/reporte-arrendatario.js"></script>
+<script src="modulos/cierre.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+{
+  "inmogestion.inmuebles": [
+    {
+      "id": "mvscraxnf3xpch",
+      "codigo": "APT-101",
+      "tipo": "Apartamento",
+      "estado": "Arrendado",
+      "copropiedad": "mvsd4h9uxmk6x5",
+      "propietarios": [
+        {
+          "id": "mvsaen2qxj1cr4",
+          "porcentaje": 55
+        },
+        {
+          "id": "mvscthwa9jhlvl",
+          "porcentaje": 45
+        }
+      ],
+      "servicios": {
+        "energia": {
+          "activo": true,
+          "lectura": "50000"
+        },
+        "acueducto": {
+          "activo": true,
+          "lectura": "100000"
+        },
+        "gas": {
+          "activo": true,
+          "lectura": "100000"
+        }
+      },
+      "creado": "2026-10-28T16:52:24.731Z",
+      "actualizado": "2026-10-28T17:07:00.250Z"
+    },
+    {
+      "id": "mvsmcnzvk04gcj",
+      "codigo": "OF-401",
+      "tipo": "Oficina",
+      "estado": "Arrendado",
+      "copropiedad": "mvsmbmtv66jzt3",
+      "propietarios": [
+        {
+          "id": "mvsl74sbwxhzw2",
+          "porcentaje": 100
+        }
+      ],
+      "servicios": {
+        "energia": {
+          "activo": false,
+          "lectura": ""
+        },
+        "acueducto": {
+          "activo": false,
+          "lectura": ""
+        },
+        "gas": {
+          "activo": false,
+          "lectura": ""
+        }
+      },
+      "creado": "2026-10-28T21:20:57.979Z"
+    }
+  ],
+  "inmogestion.propietarios": [
+    {
+      "id": "mvsaen2qxj1cr4",
+      "nombre": "María Gómez",
+      "documento": "52.123.456",
+      "tipoDocumento": "CC",
+      "banco": "Bancolombia",
+      "cuenta": "123-456789-01",
+      "tipoCuenta": "Ahorros",
+      "formaPago": "dividido",
+      "telefonos": [
+        "300 123 4567"
+      ],
+      "correos": [
+        "yicellelith@gmail.com"
+      ],
+      "creado": "2026-10-28T15:46:34.706Z",
+      "actualizado": "2026-10-28T16:54:12.554Z"
+    },
+    {
+      "id": "mvscthwa9jhlvl",
+      "nombre": "REIKENY EDUARDO  HENRRIQUEZ TERAN",
+      "documento": "5408578",
+      "tipoDocumento": "PEP",
+      "banco": "Bancolombia",
+      "cuenta": "128-456789-01",
+      "tipoCuenta": "Ahorros",
+      "formaPago": "dividido",
+      "telefonos": [
+        "3112512720"
+      ],
+      "correos": [
+        "CLAGIS_27@HOTMAIL.COM"
+      ],
+      "creado": "2026-10-28T16:54:07.066Z",
+      "actualizado": "2026-10-28T16:55:02.842Z"
+    },
+    {
+      "id": "mvsl74sbwxhzw2",
+      "nombre": "SILENE PEÑA",
+      "documento": "69852147",
+      "tipoDocumento": "CC",
+      "banco": "Bancolombia",
+      "cuenta": "322-456789-01",
+      "tipoCuenta": "Ahorros",
+      "formaPago": "unico",
+      "telefonos": [
+        "3502654789"
+      ],
+      "correos": [
+        "YICELLELITH@GMAIL.COM"
+      ],
+      "creado": "2026-10-28T20:48:40.187Z"
+    }
+  ],
+  "inmogestion.contratos": [
+    {
+      "id": "mvsjhss3781k0f",
+      "codigo": "CONT-2026-01",
+      "inmuebleId": "mvscraxnf3xpch",
+      "arrendatarioId": "mvseamnncpbm75",
+      "tipoArrendamiento": "Apartamento",
+      "fechaInicio": "2026-10-01",
+      "fechaFin": "2027-02-25",
+      "aseguradora": "SURA",
+      "canon": 5000000,
+      "deposito": 500000,
+      "periodicidad": "Mensual",
+      "diaPago": "5",
+      "iva": 0,
+      "retencion": 0,
+      "incremento": 0,
+      "prorrogas": [
+        {
+          "fechaAnterior": "2026-12-31",
+          "fechaNueva": "2027-02-25",
+          "registrada": "2026-10-28T20:01:14.827Z"
+        }
+      ],
+      "creado": "2026-10-28T20:00:58.611Z",
+      "actualizado": "2026-10-28T20:01:14.827Z"
+    },
+    {
+      "id": "mvsme1lostvm65",
+      "codigo": "CONT-2026-30",
+      "inmuebleId": "mvsmcnzvk04gcj",
+      "arrendatarioId": "mvsm7e3wjebgxp",
+      "tipoArrendamiento": "Oficina",
+      "fechaInicio": "2026-10-01",
+      "fechaFin": "2026-12-30",
+      "aseguradora": "SURA",
+      "canon": 4000000,
+      "deposito": 0,
+      "periodicidad": "Mensual",
+      "diaPago": "10",
+      "iva": 0,
+      "retencion": 0,
+      "incremento": 0,
+      "prorrogas": [],
+      "creado": "2026-10-28T21:22:02.268Z"
+    }
+  ],
+  "inmogestion.arrendatarios": [
+    {
+      "id": "mvseamnncpbm75",
+      "nombre": "JUAN PEREZ",
+      "documento": "1047227653",
+      "tipoDocumento": "CC",
+      "telefono": "3112578920",
+      "correo": "JUAN@GMAIL.COM",
+      "codeudores": [
+        {
+          "nombre": "MARIO CASTRO",
+          "tipoDocumento": "CC",
+          "doc": "52035789",
+          "telefono": "3552145697"
+        },
+        {
+          "nombre": "JESUS LOPEZ",
+          "tipoDocumento": "CC",
+          "doc": "69541358",
+          "telefono": "3225698710"
+        }
+      ],
+      "encargadoPago": {
+        "esMismo": false,
+        "nombre": "MARIA SUAREZ",
+        "telefono": "3256987412"
+      },
+      "creado": "2026-10-28T17:35:26.003Z",
+      "actualizado": "2026-10-28T17:40:28.074Z"
+    },
+    {
+      "id": "mvsm7e3wjebgxp",
+      "nombre": "ANUBIS SANCHEZ",
+      "documento": "63521478",
+      "tipoDocumento": "CC",
+      "telefono": "300258964",
+      "correo": "YICELLELITH@GMAIL.COM",
+      "codeudores": [
+        {
+          "nombre": "AZRAIL SANCHEZ",
+          "tipoDocumento": "CC",
+          "doc": "125698",
+          "telefono": "2588888"
+        }
+      ],
+      "encargadoPago": {
+        "esMismo": true,
+        "nombre": "ANUBIS SANCHEZ",
+        "telefono": "300258964"
+      },
+      "creado": "2026-10-28T21:16:51.884Z"
+    }
+  ],
+  "inmogestion.cobros": [
+    {
+      "id": "mvtmaeldbhdb8z",
+      "contratoId": "mvsjhss3781k0f",
+      "tipo": "cargo",
+      "fecha": "2026-10-01",
+      "detalle": "Arriendo: $ 5.000.000, Admin: $ 200.000, Parqueadero: $ 100.000",
+      "monto": 5300000
+    },
+    {
+      "id": "mvtmax89ztzlbs",
+      "contratoId": "mvsjhss3781k0f",
+      "tipo": "pago",
+      "fecha": "2026-10-14",
+      "detalle": "Pago vía Transferencia [Validado]",
+      "monto": 4000000
+    },
+    {
+      "id": "mvtmbm6hmn37nb",
+      "contratoId": "mvsjhss3781k0f",
+      "tipo": "gasto",
+      "fecha": "2026-10-22",
+      "detalle": "REPARACION (A cargo de Propietario)",
+      "monto": 100000
+    },
+    {
+      "id": "mvtnz5jdqm8w6r",
+      "contratoId": "mvsjhss3781k0f",
+      "tipo": "gasto",
+      "fecha": "2026-10-14",
+      "detalle": "Reparacion tuberia (A cargo de Arrendatario)",
+      "monto": 250000
+    }
+  ],
+  "inmogestion.copropiedades": [
+    {
+      "id": "mvsd4h9uxmk6x5",
+      "nombre": "SANTA MARIA RESERVADO",
+      "administrador": "NEORMARIS MONTERO",
+      "correoAdmin": "ADMIN@SANTAMRIARESERVADO.COM",
+      "correoContadora": "CONTADORA@ADMIN@SANTAMRIARESERVADO.COM",
+      "telefonos": [
+        "6011232589"
+      ],
+      "creado": "2026-10-28T17:02:39.474Z"
+    },
+    {
+      "id": "mvsmbmtv66jzt3",
+      "nombre": "ZONA FRANCA DE BOGOTA",
+      "administrador": "FRANCO GOYANES",
+      "correoAdmin": "ADMIN@ZFB.COM",
+      "correoContadora": "CONTADOR@ZFB.COM",
+      "telefonos": [
+        "658936333"
+      ],
+      "creado": "2026-10-28T21:20:09.811Z",
+      "actualizado": "2026-10-28T21:20:21.531Z"
+    }
+  ]
+}
